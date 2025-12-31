@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-image: url('https://media.collegedekho.com/media/img/institute/crawled_images/36388/CHAL1.jpg?width=1080');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .card {
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            margin-top: 250px;
+        }
+
+        h1 {
+            text-shadow: 2px 2px 5px black;
+            color:cornflowerblue;
+            text-align: center !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">CIT College</a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'prince' %}">Principal</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'hod' %}">HOD's</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'profe' %}">Professors</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'stu' %}">Students</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4 fw-bold">CHALAPATHI INSTITUTE OF TECHNOLOGY ADMINISTRATION</h1>
+
+    <div class="row g-4">
+
+        <!-- PRINCIPAL CARD -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3 shadow">
+                <h4 class="fw-bold">Principal</h4>
+                <p>
+                    A principal is a strong leader who ensures the college's success by building 
+                    strong relationships and managing overall development.
+                </p>
+                <a href="{% url 'prince' %}" class="btn btn-dark">View More</a>
+            </div>
+        </div>
+
+        <!-- HOD CARD -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3 shadow">
+                <h4 class="fw-bold">HOD</h4>
+                <p>
+                    A Head of Department provides academic leadership, sets goals, and manages the 
+                    staff and students within the department.
+                </p>
+                <a href="{% url 'hod' %}" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+
+        <!-- PROFESSOR CARD -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3 shadow">
+                <h4 class="fw-bold">Professors</h4>
+                <p>
+                    Professors teach, guide research, mentor students, and contribute to 
+                    administrative responsibilities in the institute.
+                </p>
+                <a href="{% url 'profe' %}" class="btn btn-success">View More</a>
+            </div>
+        </div>
+
+        <!-- STUDENT CARD -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card p-3 shadow">
+                <h4 class="fw-bold">Students</h4>
+                <p>
+                    Students are expected to attend classes, study regularly, submit assignments 
+                    on time, and follow academic guidelines.
+                </p>
+                <a href="{% url 'stu' %}" class="btn btn-warning">View More</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

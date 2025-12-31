@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f'); /* Replace with your own image if needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+
+        .link-container {
+            text-align: center;
+        }
+        /* .link-container1 {
+            /* text-align: center; */
+        /* } */ */
+    </style>
+</head>
+<body>
+    <div class="link-container1">
+        <a href="{% url 'home' %}">HOME</a>
+    </div>
+    <h1>STUDENT'S DETAILS</h1>
+    <table>
+        <tr>
+            <th>Professor</th>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Year</th>
+            <th>Phone No</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x.select}}</td>
+            <td>{{x.Name}}</td>
+            <td>{{x.Roll_No}}</td>
+            <td>{{x.year}}</td>
+            <td>{{x.Phone_No}}</td>
+            <td><a href="{% url 'stu_update' x.id %}">EDIT</a></td>
+            <td><a href="{% url 'stu_del' x.id %}">DEL</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="link-container">
+        <a href="{% url 'stu_form' %}">NEW STUDENT DETAILS ENTER</a>
+    </div>
+</body>
+</html>

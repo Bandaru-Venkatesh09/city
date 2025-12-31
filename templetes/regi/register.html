@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <style>
+        body {
+            background: #eef1f4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        p {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p>{{ message }}</p>
+    <h1>Registration</h1>
+
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+
+        <input type="text" placeholder="Enter your name" name="username" required>
+
+        <input type="email" placeholder="Enter your email" name="useremail" required>
+
+        <input type="password" placeholder="Enter your password" name="user_password" required>
+
+        <input type="password" placeholder="Confirm password" name="user_con_password" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

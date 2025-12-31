@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Records</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d'); /* Replace with your own image if needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        table {
+            width: 95%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 18px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e2f0fb;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .action-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-link:hover {
+            background-color: #218838;
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .link-container a {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-container a:hover {
+            background-color: #0056b3;
+        }
+        .link-container1 {
+            /* text-align: center; */
+            margin-top: 20px;
+        }
+
+        .link-container1 a {
+            background-color:#218838;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-container1 a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="link-container1">
+        <a href="{% url 'home' %}">HOME</a>
+    </div>
+    <h1>PRINCIPLES DETAILS</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Emp ID</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>Join Date</th>
+            <th>End Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x.Name}}</td>
+            <td>{{x.Emp_Id}}</td>
+            <td>{{x.Phone_No}}</td>
+            <td>{{x.Email}}</td>
+            <td>{{x.Join_Date}}</td>
+            <td>{{x.End_Date}}</td>
+            <td><a class="action-link" href="{% url 'prince_update' x.id %}">EDIT</a></td>
+            <td><a class="action-link" href="{% url 'prince_del' x.id %}">DEL</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="link-container">
+        <a href="{% url 'prince_form' %}">NEW DETAILS ENTER</a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+
+            /* 🔥 Full-screen background image without static */
+            background-image: url("https://image.slidesdocs.com/responsive-images/background/minimalist-pattern-creative-geometric-business-white-powerpoint-background_ff6f7d1b49__960_540.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .img{
+            margin-left: 30px;
+        }
+
+        .box {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.90);
+            padding: 25px;
+            /* background-color:mediumpurple; */
+            border-radius: 12px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.3);
+        }
+
+        h2 { text-align: center; }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #loginBtn { background: #1f78d1; color: white; }
+        #registerBtn { background: green; color: white; }
+    </style>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("registerBox").style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- LOGIN FORM -->
+    <div class="box" id="loginBox">
+        <div class="img">
+            <img src="https://city.ac.in/Content/images/cit_Logo31.png" alt="" width="300">
+        </div>
+        <h2>Login</h2>
+
+        <form method="post" action="{% url 'login101' %}">
+            {% csrf_token %}
+            <input type="text" name="user_log_name" placeholder="Enter username" required>
+            <input type="password" name="user_log_password" placeholder="Enter password" required>
+
+            <button id="loginBtn" type="submit">Login</button>
+        </form>
+
+        <button id="registerBtn" onclick="showRegisterForm()">Create New Account</button>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="box" id="registerBox" style="display: none;">
+        <h2>Register</h2>
+
+        <form method="post" action="{% url 'registration101' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter name" required>
+            <input type="email" name="useremail" placeholder="Enter email" required>
+            <input type="password" name="user_password" placeholder="Enter password" required>
+            <input type="password" name="user_con_password" placeholder="Confirm password" required>
+
+            <button id="loginBtn" type="submit">Register</button>
+        </form>
+    </div>
+
+</body>
+</html>
