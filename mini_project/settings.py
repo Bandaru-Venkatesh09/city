@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-b6lb5t-j+ms=ti@j$-%5t&)!*a+(4k2wi551gzdtm)1+t#anq!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,12 +74,18 @@ WSGI_APPLICATION = 'mini_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+import os
+if os.environ.get("RENDER"): 
+    DATABASES = { 
+            "default": { 
+                "ENGINE": "django.db.backends.mysql", 
+                "NAME": os.environ.get("MYSQLDATABASE"), 
+                "USER": os.environ.get("MYSQLUSER"), 
+                "PASSWORD": os.environ.get("MYSQLPASSWORD"), 
+                "HOST": os.environ.get("MYSQLHOST"), 
+                "PORT": os.environ.get("MYSQLPORT", "3306"), 
+            } 
+        } 
 
 
 # Password validation
